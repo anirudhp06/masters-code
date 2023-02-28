@@ -1,3 +1,4 @@
+#Sum of digits of Numbers.
 echo "Enter 5 Digit Number:"
 read num 
 num1=$num

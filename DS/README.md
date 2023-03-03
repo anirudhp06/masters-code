@@ -23,28 +23,28 @@
 9. After installation open the VMWare player. 
 
 10. Click on "Open a virtual machine" and select the `linux` folder which you copied in step 3.
-![Screenshot](VMWare.png)
+![Screenshot](images/VMWare.png)
 
 11. After selecting the folder it will ask you to select the `.vmx` file, select the `Clone of Red Hat Enterprise Linux 5.vmx` file and click on open.
 
-![Screenshot](redhat.png)
+![Screenshot](images/redhat.png)
 
 12. It will take some time to load the VM, after loading it will ask you to enter the username and password, enter the username as `root` and password as `root123`.
 
 13. If it dosent ask for credentials and asks you to select "moved it","copy it","cancel", select "copy it".
 
 14. You will have something like this below.
-![Screenshot](resume.png)
+![Screenshot](images/resume.png)
 
 15. Wait for sometime, you will be logged in.
 
-Bonus Tip. To change resolution to your displays native, in Fedora click on system ![Screenshot](system.png) 
+Bonus Tip. To change resolution to your displays native, in Fedora click on system ![Screenshot](images/system.png) 
 
-and select preferences ![Screenshot](preferences.png) 
+and select preferences ![Screenshot](images/preferences.png) 
 
-and then select hardware ![Screenshot](hardware.png) 
+and then select hardware ![Screenshot](images/hardware.png) 
 
-and then select Screen Resolution ![Screenshot](resolution.png) 
+and then select Screen Resolution ![Screenshot](images/resolution.png) 
 
 and select your native resolution & click apply.
 

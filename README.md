@@ -5,9 +5,9 @@
 
 Here are the things that are present in this repository:
 
-First and the foremost thing You can see in [timetable](https://github.com/anirudhp06/masters-code/raw/master/timetable.xlsx), if are my classmate then go ahead, make use of it.
+First and the foremost thing You can see is [timetable](https://github.com/anirudhp06/masters-code/raw/master/timetable.xlsx), if you are my classmate then go ahead, make use of it.
 
-### Ignore the `.gitignore` file, I have added it to ignore some files and folders which aren't necessary to be pushed to github. ;)
+#### Ignore the `.gitignore` file, I have added it to ignore some files and folders which aren't necessary to be pushed to github. ;)
 
 #### Coming to directories this repository has:
 
@@ -20,4 +20,4 @@ First and the foremost thing You can see in [timetable](https://github.com/aniru
 [4. UNIX](https://github.com/anirudhp06/masters-code/tree/master/UNIX) This folder has bash scripts which were tought to me in lab, it also has `README.md` file to help you get started with executing commands.
 
 
-### If you have any doubts regarding the programs or you want to contribute to this repo, then you can either contact me or open issues in this repo, or fork this repo and make a PR, i'll be happy to help.
+### If you have any doubts regarding the programs or you want to contribute to this repo, then you can either contact me or open issues in this repo, or fork this repo and make a PR, I'll be happy to help.

@@ -1,4 +1,4 @@
-# Welcome to Directory : DS
+# Welcome to Directory : UNIX
 
 ## This directory contains bash scripts based on file manipulations and other things.
 

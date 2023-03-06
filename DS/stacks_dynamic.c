@@ -1,15 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX 5
 int TOP=-1;
 
-void PUSH(int []);
-void POP(int []);
-void DISPLAY(int []);
+void PUSH(int [],int);
+void POP(int [],int);
+void DISPLAY(int [],int);
 
 int main()
 {
-    int a[MAX],i,ch=0;
+    int *a,i,ch=0,size;
+    printf("Enter size of stack:");
+    scanf("%d",&size);
+    a=(int*) malloc(size*sizeof(int));
     do
     {
         printf("\nEnter TASK TO BE DONE:\n");
@@ -18,13 +20,13 @@ int main()
         switch (ch)
         {
         case 1:
-            PUSH(a);
+            PUSH(a,size);
             break;
         case 2:
-            POP(a);
+            POP(a,size);
             break;
         case 3:
-            DISPLAY(a);
+            DISPLAY(a,size);
             break;
         case 4:
             printf("Exiting program");
@@ -39,9 +41,9 @@ int main()
     return 0;    
 }
 
-void PUSH(int *a)
+void PUSH(int *a,int size)
 {
-    if(TOP==MAX-1)
+    if(TOP==size-1)
     {
         printf("STACK FULL CANNOT PUSH ANY OTHER ELEMENT.");
     }
@@ -53,7 +55,7 @@ void PUSH(int *a)
     }
 }
 
-void POP(int *a)
+void POP(int *a,int size)
 {
     if(TOP==-1)
     {
@@ -65,7 +67,7 @@ void POP(int *a)
     }
 }
 
-void DISPLAY(int *a)
+void DISPLAY(int *a,int size)
 {
     int i;
     if(TOP==-1)

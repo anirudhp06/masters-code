@@ -66,3 +66,9 @@ create table match
     result varchar(20),
     mom int references player(pid) -- mom stands for Man of the Match.
 );
+
+-- Update Command Syntax
+update team set team_name='your_value' where tid='team_id';
+
+-- Dropping primary key from table command.
+alter table table_name drop primary key;

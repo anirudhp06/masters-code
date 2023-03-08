@@ -13,5 +13,5 @@
     - Open command prompt and type `pip install jupyter` and hit enter.
     - After installation is complete, type `jupyter notebook` and hit enter.
     - It will open a new tab in your default browser.
-    - If command prompt says `jupyter` command not found then you have to add python to your path. Follow [this](https://datatofish.com/add-python-to-windows-path/) to add python to path.
+    - If command prompt says `jupyter command not found` then you have to add python to your path. Follow [this](https://datatofish.com/add-python-to-windows-path/) to add python to path.
 4. Hope this `readme.md` helps.

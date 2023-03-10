@@ -6,3 +6,4 @@ DS/temp_leet.java
 *.class
 PYTHON/.ipynb_checkpoints
 UNIX/*.pdf
+*.out

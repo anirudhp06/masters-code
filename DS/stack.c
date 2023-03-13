@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX 5
+#define MAX 3
 int TOP=-1;
 
 void PUSH(int []);

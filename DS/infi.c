@@ -1,3 +1,4 @@
+//Program will allocate infinite memory.
 #include <stdio.h>
 #include <stdlib.h>
 void create(int*);

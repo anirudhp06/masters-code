@@ -32,14 +32,15 @@ int main() {
         }
         printf("\n");
     }
-    for(j=0;j<3;j++)
+    printf("\n");
+    for(j=0;j<3;j++)//transposing matrix
     {
         for(i=0;i<count;i++)
         {
             inv[j][i]=sparse[i][j];
         }
     }
-    for(i=0;i<3;i++){
+    for(i=0;i<3;i++){//displaying transpose of matrix
         for(j=0;j<count;j++)
         {
             printf("%d ",inv[i][j]);

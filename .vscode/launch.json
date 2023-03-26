@@ -5,7 +5,7 @@
         "name": "(Windows) Launch",
         "type": "cppvsdbg",
         "request": "launch",
-        "program": "H:\\College\\MCA\\1st Sem\\DS/gcd_lcm.exe",
+        "program": "H:\\College\\MCA\\1st Sem\\DS/practise/infix-prefix.exe",
         "args": ["4", "3", "2", "1"],
         "stopAtEntry": false,
         "cwd": "${workspaceRoot}",

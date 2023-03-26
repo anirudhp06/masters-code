@@ -38,6 +38,7 @@ int main()
             break;
         }
     } while (ch!=4);
+    free(a);
     return 0;    
 }
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <ctype.h>
+#include <string.h>//for strrev()
+#include <math.h>//for pow()
+#include <ctype.h>//for isdigit()
 
 double compute(double,double,char);
 int main()
@@ -37,9 +37,9 @@ double compute(double op1,double op2,char symbol)
 		case '-':return op1-op2;
 		case '/':return op1/op2;
 		case '%':opp1=(int)op1;
-			 opp2=(int)op2;
+			 opp2=(int)op2;//cannot compute mod div without converting to int
 			 return opp1%opp2;
-		case '$':
+		case '$'://For compilation of file using pow() use gcc `filename.c` -lm (-lm includes math.h header file explicitly)
 		case '^':return pow(op1,op2);
 		default:return -1.00;
 	}

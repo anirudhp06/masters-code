@@ -1,9 +1,3 @@
-/* 
-Please dont refer this to program for circular queue.
-the delete() method has bug , when tried fixing it, it wasn't success.
-When i will update the code i'll be removing this comment, which will indicate
-that the code is fixed.
- */
 #include <stdio.h>
 #define MAX 5
 
@@ -17,9 +11,8 @@ void insert()
 		printf("\nEnter the element:");
 		rear=(rear+1)%MAX;
 		scanf("%d",&q[rear]);
-		printf("q[%d]=%d inserted into queue\n",rear,q[rear]);
+		printf("%d inserted into queue\n",q[rear]);
 		count++;
-		printf("Count=%d\n",count);
 	}
 }
 void delete()
@@ -28,24 +21,23 @@ void delete()
 		printf("Queue is empty");
 	else
 	{
-		printf("q[%d]=%d deleted from queue.\n",front,q[front]);
+		printf("%d deleted from queue.\n",q[front]);
 		front=(front+1)%MAX;
 		count--;
-		printf("Front updated to:%d\nCount Updated to:%d",front,count);
 	}
 }
 void display()
 {
-	int i;
+	int i,f;//Temp variable f to not disturb front value, which caused descripency earlier
 	if(count==0)
 		printf("Queue is Empty.\n");
 	else
 	{
+		f=front;
 		for(i=1;i<=count;i++)
 		{
-			printf("q[%d]=%d ",front,q[front]);
-			front=(front+1)%MAX;
-			printf("Front updated to:%d\n",front);
+			printf("%d ",q[f]);
+			f=(f+1)%MAX;
 		}
 		printf("\n");
 	}

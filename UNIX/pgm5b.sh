@@ -10,7 +10,7 @@ do
 	do
 		if [ "$fil" != "$1" ]
 		then
-			count=`grep -ow "$word" $fil | wc -w`
+			count=`grep -iow "$word" $fil | wc -w`
 			echo "$word is repeated $count time in $fil file"
 		fi
 	done

@@ -7,14 +7,14 @@ int main()
 	scanf("%d",&n);
 	printf("Enter the elements:\n");
 	for(i=0;i<n;i++)
-		scanf("%d",&a[i]);
-	for(i=0;i<n;i++)
 	{
+		scanf("%d",&a[i]);
 		if(a[i]%2==0)
 			eve_max+=a[i];
 		else
 			odd_max+=a[i];
 	}
-	printf("Sum of even numbers are:%d\nSum of Odd Numbers are:%d\n",eve_max,odd_max);
+	printf("Sum of even numbers are:%d\n",eve_max);
+	printf("Sum of Odd Numbers are:%d\n",odd_max);
 	return 0;
 }

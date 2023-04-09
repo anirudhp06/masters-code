@@ -71,7 +71,8 @@ void infix_posfix(char infix[],char postfix[])
 }
 int main()
 {
-    char str[30]="a+b",postfix[30];
+    char str[30],postfix[30];
+    scanf("%s",str);
     infix_posfix(str,postfix);
     printf("Postfix of %s is %s\n",str,postfix);
     return 0;

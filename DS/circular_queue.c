@@ -1,15 +1,14 @@
 #include <stdio.h>
-#define MAX 5
 
-int rear=-1,front=0,count=0,q[MAX];
+int rear=-1,front=0,count=0,q[10],n;
 void insert()
 {
-	if(count==MAX)
+	if(count==n)
 		printf("Queue is full");
 	else
 	{
 		printf("\nEnter the element:");
-		rear=(rear+1)%MAX;
+		rear=(rear+1)%n;
 		scanf("%d",&q[rear]);
 		printf("%d inserted into queue\n",q[rear]);
 		count++;
@@ -22,7 +21,7 @@ void delete()
 	else
 	{
 		printf("%d deleted from queue.\n",q[front]);
-		front=(front+1)%MAX;
+		front=(front+1)%n;
 		count--;
 	}
 }
@@ -37,7 +36,7 @@ void display()
 		for(i=1;i<=count;i++)
 		{
 			printf("%d ",q[f]);
-			f=(f+1)%MAX;
+			f=(f+1)%n;
 		}
 		printf("\n");
 	}
@@ -46,6 +45,8 @@ void display()
 int main()
 {
 	int ch;
+	printf("Enter size of queue:");
+	scanf("%d",&n);
 	printf("****Circular Queue Program****\n");
 	do
 	{

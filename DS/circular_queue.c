@@ -1,6 +1,6 @@
 #include <stdio.h>
-
-int rear=-1,front=0,count=0,q[10],n;
+#include <stdlib.h>
+int rear=-1,front=0,count=0,*q,n;
 void insert()
 {
 	if(count==n)
@@ -47,6 +47,7 @@ int main()
 	int ch;
 	printf("Enter size of queue:");
 	scanf("%d",&n);
+	q=(int*)malloc(n*sizeof(int));
 	printf("****Circular Queue Program****\n");
 	do
 	{
@@ -65,6 +66,7 @@ int main()
 			case 3:display();
 			       break;
 			case 4:printf("Exiting\n");
+				   free(q);
 			       break;
 			default:printf("Invalid Choice\n");
 				break;

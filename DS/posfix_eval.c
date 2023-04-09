@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>//for strrev()
+#include <string.h>//for strlen()
 #include <math.h>//for pow()
 #include <ctype.h>//for isdigit()
 

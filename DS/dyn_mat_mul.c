@@ -26,7 +26,7 @@ int main()
     for(i=0;i<m2;i++)
         b[i]=(int*)malloc(n2*sizeof(int));
 
-    if(n1!=m1)
+    if(n1!=m2)
     {
         printf("Matrices are not equal hence cannot be multiplied.\n");
         exit(0);
@@ -42,7 +42,7 @@ int main()
     for(i=0;i<m1;i++)
         for(j=0;j<n1;j++)
             for(k=0;k<m2;k++)
-                c[i][j]+=a[i][k]*b[j][k];
+                c[i][j]+=a[i][k]*b[k][j];
     for(i=0;i<m1;i++)
     {
         for(j=0;j<n2;j++)

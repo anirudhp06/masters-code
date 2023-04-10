@@ -16,6 +16,7 @@ do
 		`echo $file >> "file.txt"`
 	else
 		echo "$file is invalid file type"
+		exit
 	fi
 done
 echo "The given file names in UPPERCASE are as below"

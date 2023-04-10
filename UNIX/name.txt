@@ -29,3 +29,4 @@ sshd
 landscape
 pollinate
 anirudh
+fwupd-refresh

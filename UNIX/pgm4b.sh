@@ -19,7 +19,8 @@ do
 		echo "$i-" $size "bytes" >> out.txt
 	fi
 done
-count=`wc -l out.txt`
+count=`wc -l out.txt | cut -d " " -f 1`
+echo "$count"
 sort -k 2 -n -r out.txt > final.txt
 cat final.txt
 rm final.txt

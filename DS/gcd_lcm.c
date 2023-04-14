@@ -14,7 +14,7 @@ int main()
     }
     gc=gcd(a,b);
     lcm=(a*b)/gc;
-    printf("The GCD is:%d\nThe LCM is:%d",gc,lcm);
+    printf("The GCD is:%d\nThe LCM is:%d\n",gc,lcm);
     return 0;
 }
 int gcd(int a,int b)

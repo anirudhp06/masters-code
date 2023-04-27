@@ -1,6 +1,6 @@
 clear
 user=`echo "$HOME" | cut -d "/" -f 2`
-ctime=`date|cut -c 12-13`
+ctime=`date | cut -c 12-13`
 echo "User is $user"
 echo "The current time is:$ctime"
 case $ctime in

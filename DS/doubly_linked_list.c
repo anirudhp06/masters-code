@@ -16,17 +16,28 @@ NODE getnode()
 
 NODE insert_front(int item,NODE head)
 {
+    NODE temp,curr;
+    
+    temp=getnode();
+    temp->info=item;
+    
+    curr=head->rlink;
+    
+    head->rlink=temp;
+    temp->llink=head;
+    
+    temp->rlink=curr;
+    curr->llink=temp;
+    
+    
+    return head;
+}
+
+NODE insert_rear(int item,NODE head)
+{
     NODE temp,prev=NULL;
     temp=getnode();
     temp->info=item;
-    if(head->rlink==head)
-    {
-        head->rlink=temp;
-        head->llink=temp;
-        temp->llink=head;
-        temp->rlink=head;
-        return head;
-    }
     prev=head->llink;
     prev->rlink=temp;
     temp->llink=prev;
@@ -37,7 +48,7 @@ NODE insert_front(int item,NODE head)
 
 NODE delete_pos(int pos,NODE head)
 {
-    NODE temp,prev=NULL,curr,next;
+    NODE prev=NULL,curr,next;
     int i;
     if(head->rlink==head)
     {
@@ -100,10 +111,11 @@ int main()
     do
     {
         printf("Enter your choice:\n");
-        printf("1.Insert\n");
-        printf("2.Display\n");
+        printf("1.Insert front\n");
+        printf("2.Insert rear\n");
         printf("3.Delete at position\n");
-        printf("4.Exit\n");
+        printf("4.Display\n");
+        printf("5.Exit\n");
         scanf("%d",&ch);
         switch (ch)
         {
@@ -113,7 +125,9 @@ int main()
             head=insert_front(item,head);
             break;
         case 2:
-            display(head);
+            printf("Enter item:");
+            scanf("%d",&item);
+            head=insert_rear(item,head);
             break;
         case 3:
             printf("Enter position:");
@@ -121,6 +135,9 @@ int main()
             head=delete_pos(pos,head);
             break;
         case 4:
+            display(head);
+            break;
+        case 5:
             printf("Exiting\n");
             break;
         
@@ -128,6 +145,6 @@ int main()
             printf("Enter valid choice\n");
             break;
         }
-    }while(ch!=4);
+    }while(ch!=5);
     return 0;
 }

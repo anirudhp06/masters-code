@@ -35,6 +35,43 @@ NODE insert_front(int item,NODE head)
     return head;
 }
 
+NODE delete_pos(int pos,NODE head)
+{
+    NODE temp,prev=NULL,curr,next;
+    int i;
+    if(head->rlink==head)
+    {
+        printf("Doubly Linked List is empty\n");
+        return head;
+    }
+    curr=head->rlink;
+    if(pos==1)
+    {
+        head->rlink=curr->rlink;
+        prev=curr->rlink;
+        prev->llink=head;
+        printf("%d deleted\n",curr->info);
+        free(curr);
+        return head;   
+    }
+    for(i=1;i<pos && curr!=head;i++)
+    {
+        prev=curr;
+        curr=curr->rlink;
+    }
+    if(curr==head)
+    {
+        printf("Invalid position\n");
+        return head;
+    }
+    next=curr->rlink;
+    prev->rlink=curr->rlink;
+    next->llink=prev;
+    printf("%d deleted\n",curr->info);
+    free(curr);
+    return head;
+}
+
 void display(NODE head)
 {
     NODE temp=NULL;
@@ -54,7 +91,7 @@ void display(NODE head)
 
 int main()
 {
-    int ch=0,item;
+    int ch=0,item,pos;
     NODE head;
     head=getnode();
     head->rlink=head;
@@ -63,7 +100,10 @@ int main()
     do
     {
         printf("Enter your choice:\n");
-        printf("1.Insert\n2.Display\n3.Exit\n");
+        printf("1.Insert\n");
+        printf("2.Display\n");
+        printf("3.Delete at position\n");
+        printf("4.Exit\n");
         scanf("%d",&ch);
         switch (ch)
         {
@@ -76,6 +116,11 @@ int main()
             display(head);
             break;
         case 3:
+            printf("Enter position:");
+            scanf("%d",&pos);
+            head=delete_pos(pos,head);
+            break;
+        case 4:
             printf("Exiting\n");
             break;
         
@@ -83,6 +128,6 @@ int main()
             printf("Enter valid choice\n");
             break;
         }
-    }while(ch!=3);
+    }while(ch!=4);
     return 0;
 }

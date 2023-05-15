@@ -2,7 +2,7 @@ BEGIN{
 	FS="/";
 }
 {
-	printf("The entered date is%d/%d/%d\n",$1,$2,$3);
+	printf("The entered date is:%d/%d/%d\n",$1,$2,$3);
 	if($1>=1 && $1<=31 && $2>=1 && $2<=12)
 	{
 		printf("%d/%d/%d is valid date\n",$1,$2,$3);

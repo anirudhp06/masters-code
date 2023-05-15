@@ -4,6 +4,8 @@
 DS/temp_leet.java
 *.class
 PYTHON/.ipynb_checkpoints
+PYTHON/AAT/.ipynb_checkpoints
+PYTHON/AAT/*.pdf
 *.out
 DS/practise
 UNIX/practise

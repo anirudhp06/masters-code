@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include <omp.h>
 
 void insert_sort(int *a,int n)
@@ -28,14 +28,17 @@ int main()
 	printf("Enter number of elements:");
 	scanf("%d",&n);
 	a=(int *)calloc(n,sizeof(int));
-	for(i=0;i>n;i++)
-		a[i]=random()%1000;
+	for(i=0;i<n;i++)
+	{
+		a[i]=rand()%1000;
+		//printf("%d ",a[i]);
+	}
 	gettimeofday(&start,0);
 	insert_sort(a,n);
 	gettimeofday(&end,0);
 	s=end.tv_sec-start.tv_sec;
 	us=end.tv_usec-start.tv_usec;
 	mtime=((s*1000)+(us*1000))+0.5;
-	printf("Total time taken:%lfms\n",mtime);
+	printf("\nTotal time taken:%lfms\n",mtime);
 	return 0;
 }

@@ -31,14 +31,14 @@ int main()
 	for(i=0;i<n;i++)
 	{
 		a[i]=rand()%1000;
-		//printf("%d ",a[i]);
+		printf("%d ",a[i]);
 	}
 	gettimeofday(&start,0);
 	insert_sort(a,n);
 	gettimeofday(&end,0);
 	s=end.tv_sec-start.tv_sec;
 	us=end.tv_usec-start.tv_usec;
-	mtime=((s*1000)+(us*1000))+0.5;
+	mtime=((s*1000)+(us/1000))+0.5;
 	printf("\nTotal time taken:%lfms\n",mtime);
 	return 0;
 }

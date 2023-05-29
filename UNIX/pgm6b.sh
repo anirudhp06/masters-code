@@ -1,4 +1,4 @@
-#Shell script to create function mckcd()
+#Shell script to create function mkcd()
 #mkcd() whenever called should create directories recursively
 clear
 mkcd()

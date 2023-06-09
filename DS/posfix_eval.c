@@ -21,6 +21,7 @@ int main()
 			op2=num[top--];
 			op1=num[top--];
 			res=compute(op1,op2,symbol);
+			printf("Sending compute(%d,%d,%c)\n",op1,op2,symbol);
 			num[++top]=res;
 		}
 	}
@@ -41,6 +42,8 @@ double compute(double op1,double op2,char symbol)
 			 return opp1%opp2;
 		case '$'://For compilation of file using pow() use gcc `filename.c` -lm (-lm includes math.h header file explicitly)
 		case '^':return pow(op1,op2);
+			 break;
+		case '*':return op1*op2;
 		default:return -1.00;
 	}
 }

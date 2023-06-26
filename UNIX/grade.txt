@@ -1,4 +1,0 @@
-sm	A	4	10
-os	B	4	10
-ip	C	6	10
-maths	D	6	10

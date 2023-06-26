@@ -1,0 +1,122 @@
+Hamming Distance:	
+
+Input : str1[] = "1011101", str2[] = "1001001"
+Output : 2
+Explanation : The corresponding character mismatch are highlighted.
+"1011101" and "1001001"
+
+Algorithm:
+
+int hammingDist(char str1[], char str2[])
+{
+    int i = 0, count = 0;
+    while(str1[i]!='\0')
+    {
+        if (str1[i] != str2[i])
+            count++;
+        i++;
+    }
+    return count;
+}
+_____________________________________________________________________________
+
+*) Consider a scenario where a sender device is sending a word as a Bit stream 10011101 using a standard CRC method, whose generator polynomial is x3 +1. Analyze how the receiving device will ensure the authenticity of the message it has received from the sender device.
+
+Ans.) Let's apply this method to the given bit stream 10011101 and generator polynomial x^3 + 1.
+
+Append 3 zeros (the degree of the generator polynomial) to the message to obtain a codeword:
+
+Message: 10011101
+Codeword: 10011101000
+
+Divide the codeword by the generator polynomial using binary long division:
+                                                             1011
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1000 | 10011101000
+- 1000
+------
+001110
+0011
+----
+0110
+0100
+----
+0010
+0000
+----
+Remainder: 0010
+
+Since the remainder is non-zero, the receiving device detects an error in the message.
+
+************Above are CASE STUDY questions************
+
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+25)	Using the following data, using CRC method, check whether the frame sent from sender to receiver contains any error:
+Data word: 11011101
+Divisor: 10100.
+
+Ans.) quotient is 10100
+
+1101110100
+10100
+
+1001110
+10100
+-----
+ 11010
+ 10100
+ -----
+  01010
+  00000
+  -----
+   1010
+The remainder is 1010.
+
+The remainder is non-zero, which means that there is an error in the frame.
+
+Therefore, we can conclude that the frame sent from sender to receiver contains an error when using the CRC method.
+
+_____________________________________________________________________________
+
+
+31) Convert following Binary IP addresses into equivalent decimal format:
+a)	01111000 10000011 11001100
+b)	11011000 00001111 10101010
+
+a) 01111000 10000011 11001100 in binary format represents the IP address 120.131.204. To convert it into decimal format, we can convert each octet into decimal form and then combine them with dots. The decimal equivalent of each octet is calculated by multiplying each bit by its corresponding power of 2 (starting from the rightmost bit with 2^0), and then adding up the results.
+
+Octet 1: 0128 + 164 + 132 + 116 + 18 + 04 + 02 + 01 = 120
+Octet 2: 1128 + 064 + 032 + 016 + 08 + 04 + 12 + 11 = 131
+Octet 3: 1128 + 164 + 032 + 016 + 18 + 14 + 02 + 01 = 204
+
+Therefore, the decimal equivalent of the IP address 01111000 10000011 11001100 is 120.131.204.
+
+b) 11011000 00001111 10101010 in binary format represents the IP address 216.15.170. To convert it into decimal format, we can follow the same procedure as above.
+
+Octet 1: 1128 + 164 + 032 + 116 + 18 + 04 + 02 + 01 = 216
+Octet 2: 0128 + 064 + 032 + 016 + 18 + 14 + 12 + 11 = 15
+Octet 3: 1128 + 064 + 132 + 016 + 18 + 04 + 12 + 01 = 170
+
+Therefore, the decimal equivalent of the IP address 11011000 00001111 10101010 is 216.15.170.
+
+_____________________________________________________________________________
+
+
+32)	Check if any errors in the following IP addresses:
+a)	168.04.56.27
+b)	257.127.4.67
+c)	168.33.25.2.1
+d)	100.25.4.67
+
+a) 168.04.56.27 is an invalid IP address because leading zeros are not allowed in the octets. The correct representation of this IP address is 168.4.56.27.
+
+b) 257.127.4.67 is an invalid IP address because the maximum value allowed for each octet is 255. Therefore, the first octet must be changed to a value between 0 and 255. The correct representation of this IP address could be 1.127.4.67 or any other valid value between 0 and 255.
+
+c) 168.33.25.2.1 is an invalid IP address because it has five octets instead of four. The correct representation of this IP address is 168.33.25.2.
+
+d) 100.25.4.67 is a valid IP address. It has four octets, each with a value between 0 and 255. Therefore, there are no errors in this IP address.
+
+************Above are INNOVATIVE questions************

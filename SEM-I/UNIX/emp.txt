@@ -1,0 +1,4 @@
+111	abc	manager		16-12-2022	8000
+222	pqr	professor	18-12-2022	6000
+333	bpo	director	11-12-2022	12000
+444	grp	programmer	12-12-2022	10000

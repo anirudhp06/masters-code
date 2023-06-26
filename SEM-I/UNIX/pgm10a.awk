@@ -1,0 +1,20 @@
+BEGIN{
+	printf("Salary Details of employee is\n");
+	printf("sl.no\tName\tDesignation\tBasic\tTDA\tHRA\tGROSS\n");
+}
+{
+	slno++;
+	if($5<10000)
+	{
+		da=$5*0.45;
+		hra=$5*0.15;
+		gross=$5+da+hra;
+	}
+	else
+	{
+		da=$5*0.50;
+		hra=$5*0.20;
+		gross=$5+da+hra;
+	}
+	printf("%d\t%s\t%s\t%d\t%d\t%d\t%d\n",slno,$2,$3,$5,da,hra,gross);
+}

@@ -1,5 +1,5 @@
 import java.util.Observer;
-import jaba.util.Observable;
+import java.util.Observable;
 
 public class NameObserver implements Observer {
     private String Name;
@@ -10,6 +10,9 @@ public class NameObserver implements Observer {
     public void update(Observable obj,Object arg){
         if(arg instanceof String){
             Name=(String)arg;
+            System.out.println("Name Observer:"+Name);
         }
+        else
+            System.out.println("Name observer:Some other change to subject");
     }
 }

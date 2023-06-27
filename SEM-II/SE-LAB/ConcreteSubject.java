@@ -25,7 +25,7 @@ public class ConcreteSubject extends Observable {
     public void setPrice(float Price){
         this.Price=Price;
         setChanged();
-        notifyObservers(new float(Price));
+        notifyObservers((float)Price);
     }
 
 }

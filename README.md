@@ -7,3 +7,6 @@
 - [`SEM-2`](/SEM-II/) - Consists of all files of 2nd semester.
 - `SEM-3` - Will consists of all files of 3rd semester.
 - `SEM-4` - Will consists of all files of 4th semester.
+
+## About HTML files:
+ You can view all the HTML files deployed live by clicking [here](/index.html)

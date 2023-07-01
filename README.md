@@ -9,4 +9,4 @@
 - `SEM-4` - Will consists of all files of 4th semester.
 
 ## About HTML files:
- You can view all the HTML files deployed live by clicking [here](/deployement.html)
+ You can view all the HTML files deployed live by clicking [here](https://anirudhp06.github.io/masters-code/deployment.html)

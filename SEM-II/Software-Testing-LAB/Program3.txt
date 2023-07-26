@@ -1,0 +1,39 @@
+#Program 3 to demonstrate XPATH and
+
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
+#pass the browser specific path
+
+serv_obj = Service("C:\drivers\chromedriver.exe")
+driver = webdriver.Chrome(service=serv_obj)
+
+driver.get("https://www.amazon.in/")
+driver.maximize_window()
+
+#1.Absolute XPATH #copy->full XPATH
+
+#driver.find_element(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[2]/div[1]/input").send_keys("T-Shirts")
+#driver.find_element(By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[2]/div[1]/input").click()
+
+#2.Relative XPATH #copy->XPATH
+
+#driver.find_element(By.XPATH, "//*[@id='twotabsearchtextbox']").send_keys("Puma")
+#driver.find_element(By.XPATH, "//*[@id='nav-search-submit-button']").click()
+
+#other XPATH options available
+
+#driver.find_element(By.XPATH, "//input[@id='twotabsearchtextbox' or @name='field-keywords']").send_keys("Mercedes AMG Petronas Shoes")
+#driver.find_element(By.XPATH, "//input[@id='twotabsearchtextbox' and @class='nav-input nav-progressive-attribute']").send_keys("Mercedes AMG Petronas Shoes")
+
+#contains() and starts_with()
+
+#driver.find_element(By.XPATH, "//input[contains(@id, 'twotab')]").send_keys("Mercedes AMG Petronas Shoes")
+
+#driver.find_element(By.XPATH, "//input[starts-with(@id, 'twotab')]").send_keys("Mercedes AMG Petronas Shoes")
+
+driver.find_element(By.XPATH, "//a[text()='Sell']").click()
+
+time.sleep(5)

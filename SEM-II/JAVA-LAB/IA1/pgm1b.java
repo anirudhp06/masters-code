@@ -2,7 +2,7 @@
 	i. Strings handling functions such as – length, concat, equals, isEmpty 
  */
 
- import java.util.Scanner;
+import java.util.Scanner;
 public class pgm1b {
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);

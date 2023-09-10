@@ -14,7 +14,7 @@ driver.get("https://demoqa.com/select-menu")
 drop_element=driver.find_element(By.XPATH,"//select[@id='oldSelectMenu']")
 
 dropcolor=Select(drop_element)
-"""dropcolor.select_by_visible_text('Black')
+dropcolor.select_by_visible_text('Black')
 
 sleep(3)
 # Select by value
@@ -24,7 +24,7 @@ sleep(3)
 # Select by index
 dropcolor.select_by_index(4)
 sleep(3)
-"""
+
 # Capture all options
 all_options=dropcolor.options
 
@@ -34,9 +34,9 @@ for opts in all_options:
 print("Total number of dropdown menus:{}".format(len(all_options)))
 sleep(3)
 
-"""# Without using built-in options
+# Without using built-in options
 for opts in all_options:
     if opts.text=="Black":
-        opts.click()"""
+        opts.click()
 
 sleep(5)

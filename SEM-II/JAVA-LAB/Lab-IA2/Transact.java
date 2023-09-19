@@ -1,3 +1,8 @@
+/*
+ * Program 1 with all sub questions,
+ * as given in Lab Internal Assignment 2 questions.
+ */
+
 class UserDefined extends Exception {
     public UserDefined(float amt) {
         System.out.println("Withdrawing Amount is invalid:" + amt);

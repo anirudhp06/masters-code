@@ -45,6 +45,23 @@ class Producer extends Thread{
         }
     }
 }
+class Consumer extends Thread{
+    private Shop s;
+    public Consumer(Shop s){
+        this.s = s;
+    }
+    public void run(){
+        for(int i=0;i<10;i++){
+            s.get();
+        }
+    }
+}
 public class ProdCons {
-    
+    public static void main(String[] args){
+        Shop c = new Shop();
+        Producer p1=new Producer(c);
+        Consumer c1=new Consumer(c);
+        p1.start();
+        c1.start();
+    }
 }

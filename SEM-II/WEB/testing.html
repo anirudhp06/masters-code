@@ -1,0 +1,13 @@
+<html>
+<body>
+<input type="text" id="demo">
+<p id="demo2"></p>
+<script>
+let para=document.getElementById('demo2');
+document.getElementById('demo').addEventListener('select', function(event) {
+    let selected=window.getSelection().toString();
+	para.innerHTML=selected;
+});
+</script>
+</body>
+</html>

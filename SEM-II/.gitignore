@@ -1,8 +1,10 @@
 *.class
 circular.pdf
 WEB/notes
-Software Engineering/
 Mobile Application Development/*
-
+JAVA-LAB/Project_Formats/*
 *.docx
 *.doc
+SE-LAB/Project/*
+Software-Testing-LAB/finals/*
+WEB/AAT2/*

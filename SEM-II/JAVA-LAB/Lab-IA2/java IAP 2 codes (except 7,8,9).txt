@@ -1,0 +1,258 @@
+------------------------------------------------------------ 1. Exception Program [User - Defined ] --------------------------------------------------------------------------------------
+
+// Step 1: Create a custom exception class
+class SVE extends Exception {
+    public StringValidationException(String message) {
+        super(message);
+    }
+}
+
+public class  {
+    public static void main(String[] args) {
+        try {
+            // Step 2: Use the custom exception class to throw and catch exceptions
+            String inputString = "Hello, World!";
+            
+            if (inputString.length() < 10) {
+                throw new StringValidationException("Input string must be at least 10 characters long.");
+            } else {
+                System.out.println("Input string is valid: " + inputString);
+            }
+        } catch (StringValidationException e) {
+            // Handle the custom exception
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+}
+------------------------------------------------------------ 2. Thread Program : Producer and Consumer --------------------------------------------------------------------------------
+
+class Shop{
+    private static int materials;
+    private boolean available=false;
+    
+    public synchronized void put(int value){
+        while(available==true){
+            try{
+                wait();
+            } 
+            catch(InterruptedException ie){
+                ie.printStackTrace();
+            }
+        }
+    
+        materials=value;
+        available=true;
+        notifyAll();
+        System.out.println("Produced val " +materials);
+    }
+    
+    public synchronized void get(){
+        while(available==false){
+            try{
+                wait();
+            }
+            catch(InterruptedException ie){}
+        }
+        available=false;
+        notifyAll();
+        System.out.println("Consumed val " +materials);
+    }   
+}
+
+
+class Producer extends Thread{
+    private Shop s;
+    public Producer(Shop c){
+        s=c;
+    }
+    public void run(){
+        for(int i=0;i<10;i++){
+            s.put(i);
+        }
+    }
+}
+
+class Consumer extends Thread{
+    private Shop s;
+    public Consumer(Shop c){
+        s=c;
+    }
+
+    public void run(){
+        int value=0;
+        for(int i=0;i<10;i++){
+            s.get();
+        }
+    }
+}
+
+class ProdCons{
+    public static void main(String args[]){
+        Shop c=new Shop();
+        Producer p1=new Producer(c);
+        Consumer c1=new Consumer(c);
+        p1.start();
+        c1.start();
+    }
+}
+
+
+------------------------------------------------------------ 3. MultiThreading --------------------------------------------------------------------------------
+
+public class MultithreadingExample implements Runnable {
+    public void run() {
+        try {
+            // Displaying the thread that is running
+            System.out.println("Thread " + Thread.currentThread().getId() + " is running");
+        } catch (Exception e) {
+            // Handling any exceptions that may occur
+            System.out.println("Exception encountered: " + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 8; // Number of threads
+        for (int i = 0; i < n; i++) {
+            Thread thread = new Thread(new MultithreadingExample());
+            thread.start();
+        }
+    }
+}
+
+
+----------------------------------------------------------- 4. USN Using RegEx -----------------------------------------------------------------------------------
+
+import java.util.regex.Pattern;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        while (true) {
+            System.out.println("Enter USN:");
+            Pattern pattern = Pattern.compile("[1-4][A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}");
+            Matcher matcher = pattern.matcher(sc.nextLine());
+            boolean found = false;
+            while (matcher.find()) {
+                System.out.println("Valid USN: "+matcher.group());
+                found = true;
+            }
+            if(!found){
+                System.out.println("Invalid USN.");
+            }
+        }
+    }
+}
+
+
+
+----------------------------------------------------------- 5. find the pattern in the given string using regular expression -------------------------------------------------
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Scanner;
+
+public class RegexExample{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string:");
+        String input = sc.nextLine();
+        System.out.println("Enter the regex pattern:");
+        String regex = sc.nextLine();
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+        boolean found = false;
+        while (matcher.find()) {
+            System.out.println("I found the text "+matcher.group()+" starting at index "+
+            matcher.start()+" and ending at index "+matcher.end());
+            found = true;
+        }
+        if(!found){
+            System.out.println("No match found.");
+        }
+    }
+}
+
+
+----------------------------------------------------------- 6. String Handling --------------------------------------------------------------------------------------------------
+
+class StringHandling{
+	public static void main(String []args){
+		String s1="BMSITM";
+		String s2="Bmsitm";
+		String s3="BmS";
+		boolean x=s1.equals(s2);
+
+		System.out.println("Compare s1 and s2:"+x);
+		System.out.println("Character at given position is:"+s1.charAt(5));
+		System.out.println(s1.concat(" the author"));
+		System.out.println(s1.length());
+		System.out.println(s1.toLowerCase());
+		System.out.println(s1.toUpperCase());
+		System.out.println(s1.indexOf('a'));
+		System.out.println(s1.substring(0,4));
+		System.out.println(s1.substring(4));
+	}
+}
+
+-------------------------------------------------------------- 10. JSP Page Count  -------------------------------------------------------------------------
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <%
+            int count = 0;
+            if (application.getAttribute("count") != null) {
+            count = (Integer)application.getAttribute("count");
+            }
+            count++;
+            application.setAttribute("count", count);
+        %>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <p>number of visitors  : <%= count %></p>
+    </body>
+</html>
+
+-------------------------------------------------------------- 11. JSP Directives  -------------------------------------------------------------------------
+
+
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8" %>
+<%@page language="java"%>
+
+<%-- import java packages --%>
+<%@page import="java.util.*" %>
+
+<%-- Session management --%>
+<%@page session="true" %>
+
+<%-- information about JSP Page --%>
+<%@page info="hello" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Page Directive Example</title>
+</head>
+<body>
+	<h1>Page Directive Example</h1>
+	<p>The current date and time is: 20</p>
+
+	<%-- Comment directive --%>
+	<%-- This is a comment --%>
+
+	<%-- Declaration directive --%>	
+	<%! int count = 0; %>
+
+	<%-- Expression directive --%>
+	<%= "The count is: " + count %>
+</body>
+</html>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

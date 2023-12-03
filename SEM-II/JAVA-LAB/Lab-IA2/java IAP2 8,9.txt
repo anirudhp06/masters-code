@@ -1,0 +1,260 @@
+
+
+
+Cookies 8th Question
+
+
+						CookieServlet.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class CookieServlet extends HttpServlet {
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String s1 = request.getParameter("special");
+            String s2 = request.getParameter("pname");
+            Cookie c1 = new Cookie("Specialization",s1);
+            Cookie c2 = new Cookie("Person",s2);
+            response.addCookie(c1);
+            response.addCookie(c2);
+            c1.setMaxAge(60);
+            c2.setMaxAge(31536000);
+            out.println("Cookie set for a minute");
+           
+        }
+    }
+
+}
+
+
+						readCookie.java
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class readCookie extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            Cookie cookie = null;
+            Cookie[] cookies = null;
+            cookies = request.getCookies();
+            String title = "Reading Cookies Example";
+            if (cookies != null) {
+                out.println("Found Cookies Name and Value");
+                for (int i = 0; i < cookies.length; i++) {
+                    cookie = cookies[i];
+                    out.println("Specialization : " + cookie.getName() + ",");
+                    out.println("Value: " + cookie.getValue() + " ");
+                }
+            } else {
+                out.println("No cookies found");
+
+            }
+        }
+
+    }
+}
+
+
+					index.html
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+    <body>
+        <form action="CookieServlet" method="post" >
+            <h1>Java Cookies Demonstration</h1>
+            Enter your Name:<input type="text" value="" name="pname" ><br/>
+            Enter your Specialization:<input type="text" value="" name="specialization"><br/>
+            <input type="submit" value="Submit"  name="submit">
+        </form>
+    </body>
+</html>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Session 9th Question
+
+					index.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <a href="index.html"> Login | </a>
+        <a href="ProfileServlet"> Profile </a>
+        <form name="loginform" action="SessionServlet" method="post">
+            <h1>USER LOGIN </h1>
+            Username:<input type="text" name="uname" value="" size="25" /> <br> <br>          
+             Password:<input type="password" name="pwd" value="" size="25" />   <br> <br>         
+             <input type="submit" value="Login" name="login" /> 
+        </form>
+    </body>
+</html>
+
+
+					link.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<html>   
+    <head>     
+        <title></title>     
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
+    </head>   
+    <body>       
+        <a href="index.html"> Login </a>
+        |       
+        <a href="LogoutServlet"> Logout </a> |       
+        <a href="ProfileServlet"> Profile </a> <hr>   
+    </body> 
+</html>
+
+				profilepage.html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profile Page </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Profile Details</div>
+    </body>
+</html>
+
+
+
+
+		
+
+
+
+
+				SessionServlet.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+public class SessionServlet extends HttpServlet {
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {    
+		response.setContentType("text/html;charset=UTF-8");         
+		String s1 = request.getParameter("uname");         
+		String s2 = request.getParameter("pwd");         
+		PrintWriter out = response.getWriter();         
+		try {         
+			if(s1.equals("skt") && s2.equals("skt")){         
+				out.println("Welcome   : "+s1);         
+				HttpSession ss1 = request.getSession();         
+				ss1.setAttribute("name", s1);         
+				request.getRequestDispatcher("link.html").include(request, response);         
+			}  
+			else{             
+				out.println("Sorry, username or password error!");  
+				request.getRequestDispatcher("index.html").include(request, response);             
+			}   
+		} 
+		finally {              
+			out.close();         
+		}     
+	}  
+}
+
+
+
+				LogoutServlet.java
+
+import java.io.IOException; 
+import java.io.PrintWriter; 
+import javax.servlet.ServletException; 
+import javax.servlet.http.HttpServlet; 
+import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletResponse; 
+import javax.servlet.http.HttpSession; 
+
+public class LogoutServlet extends HttpServlet {     
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {         
+        response.setContentType("text/html;charset=UTF-8");         
+        PrintWriter out = response.getWriter();        
+        try {            
+            request.getRequestDispatcher("link.html").include(request, response);            
+            HttpSession sess = request.getSession();            
+            sess.invalidate();            
+            out.println("You are successfully logged out");         
+        } 
+        finally {              
+            out.close();         
+        }     
+    }      
+}
+
+
+				ProfileServlet.java
+
+
+import java.io.IOException; 
+import java.io.PrintWriter; 
+import javax.servlet.ServletException; 
+import javax.servlet.http.HttpServlet; 
+import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletResponse; 
+import javax.servlet.http.HttpSession; 
+ 
+public class ProfileServlet extends HttpServlet {     
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {         
+		response.setContentType("text/html;charset=UTF-8");         
+		PrintWriter out = response.getWriter();         
+		try {           
+			request.getRequestDispatcher("link.html").include(request,response);           
+			HttpSession sess2 = request.getSession(false);           
+			if(sess2 != null){               
+				String name=(String)sess2.getAttribute("name");               
+				out.println("Hello,"+name+" <br/>Welcome to Short-Profile");             
+				request.getRequestDispatcher("profilepage.html").include(request, response);           
+			}  
+			else{               
+				out.println("please login first");               
+				request.getRequestDispatcher("login.html").include(request, response);  
+			}         
+		} 
+		finally {              
+			out.close();         
+		}     
+	}  
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

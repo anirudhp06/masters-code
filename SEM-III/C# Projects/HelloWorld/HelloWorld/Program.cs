@@ -2,18 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+//C# program to handle Exceptions 
 namespace HelloWorld
 {
     class Program
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < args.Length; i++)
+            int[] arr = new int[5] { 10, 20, 30, 40, 50 };
+            int sum = 0;
+            try
             {
-                Console.WriteLine("{0} arg is {1}", i + 1, args[i]);
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    sum += arr[i];
+                }
+                Console.WriteLine("Sum is {0}", sum);
             }
-            Console.Read();
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Execution completed");
+                Console.ReadKey();
+            }
         }
     }
 }

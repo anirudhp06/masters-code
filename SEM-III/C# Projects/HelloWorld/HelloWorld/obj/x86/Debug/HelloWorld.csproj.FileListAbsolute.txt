@@ -2,3 +2,4 @@ H:\College\MCA\All Sem Files\SEM-III\C# Projects\HelloWorld\HelloWorld\bin\Debug
 H:\College\MCA\All Sem Files\SEM-III\C# Projects\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
 H:\College\MCA\All Sem Files\SEM-III\C# Projects\HelloWorld\HelloWorld\obj\x86\Debug\HelloWorld.exe
 H:\College\MCA\All Sem Files\SEM-III\C# Projects\HelloWorld\HelloWorld\obj\x86\Debug\HelloWorld.pdb
+H:\College\MCA\All Sem Files\SEM-III\C# Projects\HelloWorld\HelloWorld\obj\x86\Debug\HelloWorld.csprojResolveAssemblyReference.cache

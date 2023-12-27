@@ -5,7 +5,7 @@
 ## Now the repo consists of directories:
 - [`SEM-1`](/SEM-I/) - Consists of all files of 1st semester.
 - [`SEM-2`](/SEM-II/) - Consists of all files of 2nd semester.
-- `SEM-3` - Will consists of all files of 3rd semester.
+- [`SEM-3`](/SEM-III/) - Will consists of all files of 3rd semester.
 - `SEM-4` - Will consists of all files of 4th semester.
 
 ## About HTML files:

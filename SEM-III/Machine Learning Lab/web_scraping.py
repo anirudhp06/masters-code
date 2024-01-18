@@ -10,7 +10,7 @@ for i in range(2,5):
     soup=BeautifulSoup(res,'html.parser')
 
     ol=soup.find('ol')
-    articles=ol.find_all('article',class_='product_prod')
+    articles=ol.find_all('article',class_='product_pod')
 
     for art in articles:
         image=art.find('img')

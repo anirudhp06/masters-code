@@ -1,0 +1,48 @@
+
+prg5
+using System;
+
+namespace @delegate
+{
+    public delegate int deli(int n, int m);
+    public class pgm9
+    {
+        public int sum(int a, int b)
+        {
+            return a + b;
+        }
+        public int sub(int a, int b)
+        {
+            return a - b;
+        }
+        public int mul(int a, int b)
+        {
+            return a * b;
+        }
+        public int div(int a, int b)
+        {
+            return a / b;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            pgm9 p = new pgm9();
+            deli d = p.sum;
+            int i = d(10, 20);
+            pgm9 p1 = new pgm9();
+            deli f = p1.sub;
+            int j = f(10, 20);
+
+            pgm9 p2 = new pgm9();
+            deli e = p2.mul;
+            int x = e(10, 20);
+            pgm9 p3 = new pgm9();
+            deli h = p3.div;
+            int y = h(100, 10);
+            Console.Write("The sum is : " + i + "\n The difference is : " + j + "\nThe product is : " + x + "\n The quotient is : " + y);
+            Console.ReadLine();
+        }
+    }
+}

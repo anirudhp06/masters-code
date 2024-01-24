@@ -1,0 +1,137 @@
+Program1 
+// To count characters and words
+str=input("Enter the String\n")
+WC=0
+CC=0
+for i in str:
+    CC=CC+1
+    if(i==" "):
+        WC=WC+1
+print("The number of words=",WC)
+print("The number of Characters=",CC)
+
+
+import math
+print("Area of Rectangle")
+length=int(input("Enter the length\n"))
+breath=int(input("Enter the breadth\n"))
+Area_Rectangle=length*breath
+print("Area of Rectangle is",Area_Rectangle)
+
+print("Area of a Circle")
+radius=int(input("Enter the radius"))
+area_circle=math.pi*radius*radius
+print("Area of circle is",area_circle)
+
+print("Area of a Triangle")
+base=int(input("Enter the base"))
+height=int(input("Enter the Height"))
+area_triangle=0.5*base*height
+print("Area of triangle is", area_triangle)
+
+
+name=input("Enter your name\n")
+n=int(input("Enter the value for n"))
+for i in range(n):
+      print(name)
+      i=i+1
+
+
+a=int(input("Enter the numerator\n"))
+b=int(input("Enter the denominator\n"))
+
+try:
+   c=a/b
+   print(c)
+except ZeroDivisionError:
+       print("Number cannot be divided\n")
+
+import time
+
+for i in range(10):
+    c_time=time.strftime("%H:%M:%S")
+    time.sleep(10)
+    print(c_time)
+
+
+Program 2
+import time
+import RPi.GPIO as gpio
+gpio.setwarnings(False)
+gpio.setmode(gpio.BOARD)
+
+led1=15
+led2=13
+
+switch1=37
+switch2=35
+gpio.setup(led1,gpio.OUT,initial=0)
+gpio.setup(led2,gpio.OUT,initial=0)
+
+gpio.setup(switch1,gpio.IN,pull_up_down=gpio.PUD_UP)
+gpio.setup(switch2,gpio.IN,pull_up_down=gpio.PUD_UP)
+
+while True:
+    if gpio.input(switch1)==1:
+       gpio.output(led1,0)
+    else:
+        #time.sleep(3)
+        gpio.output(led1,1)
+                
+    if gpio.input(switch2)==1:
+         gpio.output(led2,0)
+    else:
+         gpio.output(led2,1)
+
+Program 3
+import time
+import RPi.GPIO as gpio
+
+gpio.setwarnings(False)
+gpio.setmode(gpio.BOARD)
+
+led1=15
+gpio.setup(led1,gpio.OUT,initial=0)
+
+file1=open('light.txt','r')
+line= file1.readlines()
+
+setOn=str(line[0].split('=')[1])
+starthr=setOn.split(':') [0]
+startmin=setOn.split(':') [1]
+setOff=str(line[1].split('=')[1])
+stophr=setOff.split(':') [0]
+stopmin=setOff.split(':') [1]
+
+while(True):
+    time1=time.ctime(time.time())
+    ptime=time1.split()[3]
+    phr=ptime.split(':')[0]
+    pmin=ptime.split(':')[1]
+    if(phr==starthr and pmin==startmin):
+        gpio.output(led1,True)
+        print("LED on")
+    elif(phr==stophr and pmin==stopmin):
+           gpio.output(led1,False)
+           print("LED off")
+
+
+Program 4
+import time
+
+import RPi.GPIO as gpio
+
+gpio.setwarnings(False)
+gpio.setmode(gpio.BOARD)
+
+relay1=38
+gpio.setup(relay1,gpio.OUT,initial=0)
+
+try:
+    gpio.output(relay1,True)
+    print("Relay is switched on please press ctrl+c to exit")
+    time.sleep(5)
+    print("Relay is switched off")
+    gpio.output(relay1,False)
+except KeyboardInterrupt:
+      gpio.cleanup()

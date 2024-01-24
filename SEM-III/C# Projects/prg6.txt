@@ -1,0 +1,37 @@
+prg6
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Program_6lab
+{
+    public abstract class program
+    {
+        public abstract int mul(int a, int b);
+        public void disp1()
+        {
+            Console.WriteLine("Abstract class Program");
+        }
+    }
+    public class demo : program
+    {
+        public override int mul(int a, int b)
+        {
+            return a * b;
+        }
+      
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            demo d = new demo();
+            d.disp1();
+            int j = d.mul(20, 30);
+            Console.WriteLine("the multiplication of {0} * {1} = {2} ", 20, 30, j);
+            Console.ReadKey();
+        }
+    }
+}

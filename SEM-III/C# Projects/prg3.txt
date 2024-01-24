@@ -1,0 +1,73 @@
+prg3a:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the numerator");
+            int p = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the denominator");
+            int q = int.Parse(Console.ReadLine());
+            try
+            {
+                int r = p / q;
+                Console.WriteLine("The Value of quetient is {0}", r);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally {
+                Console.WriteLine("Exception Completed");
+
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+
+}
+  
+
+prg3b:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] intArray = new int[5] { 50, 40, 30, 20, 10 };
+            int iLoop = 0;
+            int sum = 0;
+            try
+            {
+                for (iLoop = 0; iLoop <= 5; iLoop++)
+                {
+                    sum += intArray[iLoop];
+
+                }
+                Console.WriteLine("Sum of array elements:" + sum);
+
+            }
+            catch (IndexOutOfRangeException e) {
+                Console.WriteLine(e.Message);
+
+            }
+            Console.ReadLine();
+
+        }
+    }
+}
+

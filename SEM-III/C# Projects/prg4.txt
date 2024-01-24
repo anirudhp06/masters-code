@@ -1,0 +1,26 @@
+prg4:override
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace overide
+{
+    class BaseClass {
+        public virtual string city() { return "BMSCE"; }
+    }
+    class DerivedClass : BaseClass{ 
+        public override string city(){ return "BMSIT"; }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass d = new DerivedClass();
+            String city = d.city();
+            Console.WriteLine("College Name {0}",city);
+            Console.ReadLine();
+        }
+    }
+}

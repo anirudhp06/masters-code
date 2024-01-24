@@ -1,0 +1,60 @@
+prg1a:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace part_b_1a
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double argsValue = 0;
+            double sqrtValue = 0;
+            if (args.Length == 0)
+            {
+                Console.WriteLine("***********************************");
+                Console.WriteLine("there is no command line argument defined");
+                Console.WriteLine("***********************************");
+                Console.ReadLine();
+                return;
+            }
+            argsValue = double.Parse(args[0].ToString());
+            sqrtValue = Math.Sqrt(argsValue);
+            Console.WriteLine("\n the input al command line is =" + argsValue);
+            Console.WriteLine("***********************************");
+            Console.WriteLine("the square root of the given number using command line argument is:{0}", sqrtValue);
+            Console.WriteLine("***********************************");
+            Console.ReadLine();
+        }
+    }
+}
+
+prg1b
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace prog1b
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, b, c;
+            double sum = 0, avg = 0;
+            Console.WriteLine("Enter three Number");
+            a = double.Parse(args[0].ToString());
+            b = double.Parse(args[1].ToString());
+            c = double.Parse(args[2].ToString());
+            Console.WriteLine("The Three Numbers are\n"+a+"\n"+b+"\n"+c);
+            sum=a+b+c;
+            avg=sum/3;
+            Console.WriteLine("The sum is="+sum+"\nAverage is"+avg);
+            Console.ReadKey();
+        }
+    }
+}

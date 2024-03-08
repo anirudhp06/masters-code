@@ -1,0 +1,34 @@
+Create a Lambda Function:
+
+1. Go to the AWS Lambda console: AWS Lambda Console.
+2. Click on "Create function."
+3. Choose "Author from scratch."
+4. Enter a name for your function.
+5. choose a runtime (e.g., Python 3.8) 
+6. In Architecture, Select the x86_64
+7. In the Excecution Role, "Create new role with basic lambda Function".
+8. Click on "Create Function"
+
+Write a Python Function:
+
+9. In the Lambda console, navigate to the "Function code" section.
+10. Change the Code to
+	import json
+	def lamda_handles(event, context):
+		if event["planet"] == "Earth":
+			return "Moon"
+		elif event['planet']=='sun':
+			return 'Star'
+		else:
+			return 'invalid'
+
+11. Click on "deploy" and click on "test".
+12. Choose "Configure test events." as "Create new event"
+13. Enter the event name.
+14. Change the event json as 
+	{
+		"planet":'Earth'
+	}
+ Click on 'save' and 'test'
+
+15. Click on the lambda you create and action to delete it.
